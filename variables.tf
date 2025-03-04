@@ -7,8 +7,14 @@
 # And then, we specified bucket = each.key to use the bucket name from the variable. In the case of a set each.key & each.value are the same. So ideally you can use any of them.
 
 
-variable "bucket_list" {
-  type = list
-  default  = ["my-demo-bucket-1", "my-demo-bucket-2", "my-demo-bucket-3"]
+
+variable "account_naming_construct" {
+    description = "Account naming construct"
+    type = string
 }
 
+variable "bucket_suffixes" {
+  description = "list of suffixes for bucket name"
+  type = list(string)
+  default = ["dev", "staging", "prod"]  #list of environment suffixes
+}
